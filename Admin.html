@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Book Lending</title>
+    <link rel="stylesheet" href="../css/admil.css">
+</head>
+<body>
+    <div class="login-screen" id="loginScreen">
+        <form class="login-card" id="loginForm">
+            <div class="login-logo">BL</div>
+            <h1>Welcome back</h1>
+            <p>Sign in to manage your bookstore</p>
+            <label>Email address
+                <input type="email" id="adminEmail" value="admin@booklending.com" required>
+            </label>
+            <label>Password
+                <input type="password" id="adminPassword" value="admin123" required>
+            </label>
+            <p class="login-error" id="loginError"></p>
+            <button class="primary-btn" type="submit">Sign in</button>
+        </form>
+    </div>
+
+    <div class="admin-shell" id="adminShell">
+        <aside class="sidebar" id="sidebar">
+            <a class="sidebar-brand" href="../index.html">
+                <span class="brand-mark">B</span>
+                <span>Book<span>Lending</span></span>
+            </a>
+            <nav class="sidebar-nav" aria-label="Admin navigation">
+                <button class="nav-item active" data-page="overview"><span>⌂</span> Dashboard</button>
+                <button class="nav-item" data-page="books"><span>▤</span> Books</button>
+                <button class="nav-item" data-page="categories"><span>◇</span> Categories</button>
+                <button class="nav-item" data-page="orders"><span>◫</span> Orders</button>
+                <button class="nav-item" data-page="customers"><span>♙</span> Customers</button>
+                <button class="nav-item" data-page="reviews"><span>☆</span> Reviews</button>
+                <button class="nav-item" data-page="sales"><span>▥</span> Sales Report</button>
+            </nav>
+            <button class="logout-btn" id="logoutBtn">⇥ Logout</button>
+        </aside>
+
+        <main class="main-area">
+            <header class="topbar">
+                <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+                <div>
+                    <p class="topbar-kicker">Admin Panel</p>
+                    <h1 id="pageTitle">Dashboard Overview</h1>
+                </div>
+                <div class="topbar-actions">
+                    <button class="icon-btn" aria-label="Notifications">♢<span class="notification-dot"></span></button>
+                    <div class="admin-profile"><span class="avatar">A</span><div><strong>Admin User</strong><small>Administrator</small></div></div>
+                </div>
+            </header>
+
+            <div class="content">
+                <section class="page active" id="overview">
+                    <div class="stat-grid">
+                        <article class="stat-card"><div class="stat-icon orange">▦</div><div><p>Total Revenue</p><strong id="revenueStat">$12,480</strong><small class="positive">+12.5% this month</small></div></article>
+                        <article class="stat-card"><div class="stat-icon blue">◫</div><div><p>Total Orders</p><strong id="ordersStat">248</strong><small class="positive">+8.2% this month</small></div></article>
+                        <article class="stat-card"><div class="stat-icon green">♙</div><div><p>Total Customers</p><strong id="customersStat">1,429</strong><small class="positive">+5.4% this month</small></div></article>
+                        <article class="stat-card"><div class="stat-icon purple">▤</div><div><p>Total Books</p><strong id="booksStat">156</strong><small>12 low in stock</small></div></article>
+                    </div>
+                    <div class="dashboard-grid">
+                        <article class="panel sales-panel">
+                            <div class="panel-header"><div><p>Revenue</p><h2>Sales Overview</h2></div><select><option>Last 7 days</option><option>Last 30 days</option></select></div>
+                            <div class="chart" aria-label="Weekly sales chart">
+                                <div class="chart-lines"><i></i><i></i><i></i><i></i></div>
+                                <div class="bars"><div><span style="height:52%"></span><small>Mon</small></div><div><span style="height:68%"></span><small>Tue</small></div><div><span style="height:46%"></span><small>Wed</small></div><div><span style="height:84%"></span><small>Thu</small></div><div><span style="height:71%"></span><small>Fri</small></div><div><span style="height:92%"></span><small>Sat</small></div><div><span style="height:78%"></span><small>Sun</small></div></div>
+                            </div>
+                        </article>
+                        <article class="panel recent-orders">
+                            <div class="panel-header"><div><p>Latest activity</p><h2>Recent Orders</h2></div><button class="text-btn" data-go="orders">View all</button></div>
+                            <div id="recentOrders"></div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="page" id="books">
+                    <div class="toolbar"><div><h2>Book Inventory</h2><p>Manage titles, prices and stock</p></div><button class="primary-btn" id="addBookBtn">＋ Add New Book</button></div>
+                    <div class="table-panel"><table><thead><tr><th>Book</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Actions</th></tr></thead><tbody id="bookTable"></tbody></table></div>
+                </section>
+
+                <section class="page" id="categories">
+                    <div class="toolbar"><div><h2>Categories</h2><p>Create and organize book categories</p></div></div>
+                    <div class="two-column"><form class="panel form-panel" id="categoryForm"><h3>Add Category</h3><label>Category name<input id="categoryName" required placeholder="e.g. Science"></label><button class="primary-btn" type="submit">Add Category</button></form><div class="panel category-list" id="categoryList"></div></div>
+                </section>
+
+                <section class="page" id="orders">
+                    <div class="toolbar"><div><h2>Orders</h2><p>Track and update customer orders</p></div></div>
+                    <div class="table-panel"><table><thead><tr><th>Order</th><th>Customer</th><th>Date</th><th>Total</th><th>Status</th></tr></thead><tbody id="orderTable"></tbody></table></div>
+                </section>
+
+                <section class="page" id="customers">
+                    <div class="toolbar"><div><h2>Customers</h2><p>Registered customer accounts</p></div></div>
+                    <div class="table-panel"><table><thead><tr><th>Customer</th><th>Email</th><th>Phone</th><th>Orders</th><th>Joined</th></tr></thead><tbody id="customerTable"></tbody></table></div>
+                </section>
+
+                <section class="page" id="reviews">
+                    <div class="toolbar"><div><h2>Customer Reviews</h2><p>Monitor product feedback</p></div></div>
+                    <div class="review-grid" id="reviewGrid"></div>
+                </section>
+
+                <section class="page" id="sales">
+                    <div class="toolbar"><div><h2>Sales Report</h2><p>Monthly performance summary</p></div><button class="secondary-btn" id="exportBtn">↓ Export Report</button></div>
+                    <div class="stat-grid sales-stats"><article class="stat-card"><div><p>Total Revenue</p><strong id="salesRevenue">$12,480</strong></div></article><article class="stat-card"><div><p>Average Order</p><strong>$50.32</strong></div></article><article class="stat-card"><div><p>Orders Completed</p><strong>214</strong></div></article><article class="stat-card"><div><p>Refunded</p><strong>$340</strong></div></article></div>
+                    <div class="panel report-panel"><h3>Monthly Sales</h3><div class="report-bars" id="reportBars"></div></div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <dialog class="modal" id="bookModal">
+        <form method="dialog" id="bookForm">
+            <div class="modal-header"><div><p>Inventory</p><h2 id="bookModalTitle">Add New Book</h2></div><button class="modal-close" type="button" data-close-modal>×</button></div>
+            <input type="hidden" id="bookId">
+            <div class="form-grid">
+                <label>Book title<input id="bookTitle" required></label>
+                <label>Author<input id="bookAuthor" required></label>
+                <label>Category<select id="bookCategory"></select></label>
+                <label>Price ($)<input id="bookPrice" type="number" min="0" step="0.01" required></label>
+                <label>Stock quantity<input id="bookStock" type="number" min="0" required></label>
+                <label>Book image<div class="upload-box"><input id="bookImage" type="file" accept="image/*"><span>Choose image</span></div></label>
+            </div>
+            <div class="modal-actions"><button class="secondary-btn" type="button" data-close-modal>Cancel</button><button class="primary-btn" type="submit">Save Book</button></div>
+        </form>
+    </dialog>
+
+    <script src="../js/Admin.js"></script>
+</body>
+</html>

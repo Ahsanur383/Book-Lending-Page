@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Customer Account | Book Lending</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/customer account.css">
+</head>
+<body>
+<main class="account-page">
+  <div class="account-box">
+    <aside class="account-sidebar">
+      <a class="account-brand" href="index.html">Book Lending</a>
+      <nav class="account-menu">
+        <button class="active" data-view="login">User Login</button>
+        <button data-view="register">User Registration</button>
+        <button data-view="forgot">Forgot Password</button>
+        <button data-view="profile">My Profile</button>
+        <button data-view="orders">My Orders</button>
+        <button data-view="history">Order History</button>
+      </nav>
+      <button class="logout-link" data-view="login">Logout</button>
+    </aside>
+    <section class="account-main">
+      <div class="account-view active" id="login"><h1>Login</h1><form class="account-form"><input type="email" placeholder="Email Address" required><input type="password" placeholder="Password" required><button>Login</button></form><button class="form-switch" data-view="register">New customer? Register</button></div>
+      <div class="account-view" id="register"><h1>Registration</h1><form class="account-form"><input type="text" placeholder="Full Name" required><input type="email" placeholder="Email Address" required><input type="password" placeholder="Password" required><button>Register</button></form></div>
+      <div class="account-view" id="forgot"><h1>Forgot Password</h1><form class="account-form"><input type="email" placeholder="Email Address" required><button>Send Reset Link</button></form></div>
+      <div class="account-view" id="profile"><h1>My Profile</h1><form class="account-form"><input type="text" value="Customer Name"><input type="tel" value="+880 0000-000000"><input type="email" value="customer@example.com"><button type="button">Save Profile</button></form></div>
+      <div class="account-view" id="orders"><h1>My Orders</h1><div class="order-row"><strong>#BL-2401</strong><span>Processing</span></div><div class="order-row"><strong>#BL-2398</strong><span>Shipped</span></div></div>
+      <div class="account-view" id="history"><h1>Order History</h1><div class="order-row"><strong>#BL-2290</strong><span>Delivered</span></div><div class="order-row"><strong>#BL-2175</strong><span>Delivered</span></div></div>
+    </section>
+  </div>
+</main>
+<script src="js/customer account .js"></script>
+</body>
+</html>

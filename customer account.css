@@ -1,0 +1,26 @@
+/* Customer account page */
+.account-page{min-height:100vh;padding:48px 20px;display:grid;place-items:center}
+.account-box{width:min(980px,100%);min-height:560px;display:grid;grid-template-columns:260px 1fr;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 18px 45px rgba(23,50,77,.12)}
+.account-sidebar{padding:28px 18px;background:var(--navy);color:#fff}
+.account-sidebar a{color:#fff;text-decoration:none}
+.account-brand{display:block;margin-bottom:28px;font-size:20px;font-weight:800}
+.account-menu{display:grid;gap:7px}
+.account-menu button{height:42px;border:0;border-radius:7px;background:transparent;color:#dce6ef;text-align:left;padding:0 12px;font:inherit;cursor:pointer}
+.account-menu button.active{background:var(--orange);color:#fff}
+.logout-link{margin-top:24px;border:0;background:none;color:#ffc4b7;font:inherit;cursor:pointer}
+.account-main{padding:38px}
+.account-main h1{margin:0 0 24px;color:var(--navy)}
+.account-view{display:none}.account-view.active{display:block}
+.account-form{max-width:420px;display:grid;gap:12px}
+.account-form input{height:46px;border:1px solid var(--line);border-radius:8px;padding:0 13px;font:inherit}
+.account-form button{height:44px;border:0;border-radius:8px;background:var(--navy);color:#fff;font:inherit;font-weight:800;cursor:pointer}
+.form-switch{border:0;background:none;color:var(--orange);font:inherit;font-size:13px;cursor:pointer}
+.order-row{margin:10px 0;padding:16px;border:1px solid var(--line);border-radius:8px;display:flex;justify-content:space-between}
+.order-row span{color:#3d9361;font-weight:800}
+@media(max-width:700px){
+.account-page{padding:20px 12px}
+.account-box{grid-template-columns:1fr}
+.account-sidebar{padding:18px}
+.account-menu{grid-template-columns:repeat(2,1fr)}
+.account-main{padding:24px 18px}
+}

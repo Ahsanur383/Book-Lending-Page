@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Website information: character set, viewport, title and stylesheet -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Lending Page</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admil.css">
+    <link rel="stylesheet" href="/indexhtml/Admin.html">
+
+    
+</head>
+<body>
+    <!-- Top section: website navbar -->
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+            <!-- Website Logo -->
+            <a class="brand" href="#" aria-label="Book Lending home">
+                <span class="brand-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H11v17H6.5A2.5 2.5 0 0 0 4 21.5v-17Zm16 0A2.5 2.5 0 0 0 17.5 2H13v17h4.5A2.5 2.5 0 0 1 20 21.5v-17Z"/>
+                    </svg>
+                </span>
+                <span>Book<span>Lending</span></span>
+            </a>
+
+            <!-- Mobile menu button -->
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Navbar menu: links, search, cart and account -->
+            <div class="nav-menu" id="nav-menu">
+                <!-- Main navigation links -->
+                <ul class="nav-links">
+                    <li><a class="active" href="#">Home</a></li>
+                    <li><a href="#all-books">All Books</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+
+                <!-- Search bar -->
+                <form class="search-form" role="search">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="11" cy="11" r="6.5"></circle>
+                        <path d="m16 16 4 4"></path>
+                    </svg>
+                    <label class="sr-only" for="book-search">Search books</label>
+                    <input id="book-search" type="search" placeholder="Search books..." autocomplete="off">
+                </form>
+
+                <!-- Shopping cart and Login/Register actions -->
+                <div class="nav-actions">
+                    <div class="cart-wrapper">
+                        <button class="cart-button" type="button" aria-expanded="false" aria-controls="cart-panel" aria-label="Shopping cart with 0 items">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="9" cy="20" r="1"></circle>
+                                <circle cx="18" cy="20" r="1"></circle>
+                                <path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L20.5 9H7"></path>
+                            </svg>
+                            <span class="cart-count">0</span>
+                        </button>
+
+                        <!-- Shopping cart dropdown -->
+                        <div class="cart-panel" id="cart-panel" aria-hidden="true">
+                            <div class="cart-panel-header">
+                                <h3>My Cart</h3>
+                                <button class="close-cart" type="button" aria-label="Close cart">&times;</button>
+                            </div>
+                            <div class="cart-items"></div>
+                            <div class="cart-panel-footer">
+                                <div class="cart-total">
+                                    <span>Subtotal</span>
+                                    <strong>$0.00</strong>
+                                </div>
+                                <button class="checkout-button" type="button">Checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="login-link" href="customer Account/Customer account.html#login">Login</a>
+                    <span class="action-divider" aria-hidden="true">/</span>
+                    <a class="register-link" href="customer Account/Customer account.html#register">Register</a>
+                    <a class="admin-link" href="indexhtml/Admin.html">Admin</a>
+                    <a class="account-link" href="customer Account/Customer account.html" aria-label="Customer Account"><span aria-hidden="true">👤</span></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main content area -->
+    <main>
+        <!-- Hero section: heading, description, buttons, offer and banner image -->
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="hero-content">
+                <!-- Special offer text -->
+                <p class="offer-text">
+                    <span>Special Offer</span>
+                    Get 20% off your first book
+                </p>
+
+                <!-- Main heading -->
+                <h1 id="hero-heading">Discover stories that stay with you</h1>
+
+                <!-- Hero description -->
+                <p class="hero-description">
+                    Explore a wide collection of books, borrow your favorites, and enjoy reading
+                    from the comfort of your home.
+                </p>
+
+                <!-- Hero action buttons -->
+                <div class="hero-actions">
+                    <a class="primary-button" href="#all-books">Shop Now</a>
+                    <a class="secondary-button" href="#categories">
+                        Explore Books
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M5 12h14M13 6l6 6-6 6"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero banner image -->
+            <div class="hero-banner" aria-label="Collection of books illustration">
+                <div class="banner-shape banner-shape-one"></div>
+                <div class="banner-shape banner-shape-two"></div>
+
+                <div class="book-stack">
+                    <img class="book-cover cover-one" src="image/1st.jpg" alt="The Blind Justice book cover">
+                    <img class="book-cover cover-two" src="image/2end.jpg" alt="The Positive Mind Effect book cover">
+                    <img class="book-cover cover-three" src="image/3rd.jpg" alt="Deep Work book cover">
+                    <img class="book-cover cover-four" src="image/4th.jpg" alt="Master Your Emotions book cover">
+                    <img class="book-cover cover-five" src="image/5th.jpg" alt="Control Your Emotions book cover">
+                </div>
+
+                <div class="floating-card rating-card">
+                    <strong>4.9</strong>
+                    <span>★★★★★</span>
+                </div>
+
+                <div class="floating-card readers-card">
+                    <strong>10K+</strong>
+                    <span>Happy Readers</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Books section -->
+        <section class="featured-books" id="all-books" aria-labelledby="featured-heading">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">Editor's Choice</span>
+                    <h2 id="featured-heading">Featured Books</h2>
+                </div>
+                <a class="view-all-link" href="#all-books">
+                    View All Books
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12h14M13 6l6 6-6 6"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="book-controls" aria-label="Book search and sorting controls">
+                <label for="book-category-filter">Category
+                    <select id="book-category-filter">
+                        <option value="all">All Categories</option>
+                        <option value="Story Books">Story Books</option>
+                        <option value="Novels">Novels</option>
+                        <option value="Educational Books">Educational Books</option>
+                        <option value="Technology Books">Technology Books</option>
+                        <option value="Biography">Biography</option>
+                    </select>
+                </label>
+                <label for="book-sort">Sort by
+                    <select id="book-sort">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name: A to Z</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="book-grid">
+                <!-- Book 1 -->
+                <article class="book-card" data-category="Novels">
+                    <div class="book-card-image">
+                        <span class="discount-badge">20% OFF</span>
+                        <button class="wishlist-button" type="button" data-title="The Blind Justice" aria-label="Add The Blind Justice to wishlist">♡</button>
+                        <img src="image/1st.jpg" alt="The Blind Justice book cover" loading="lazy">
+                    </div>
+                    <div class="book-card-content">
+                        <h3>The Blind Justice</h3>
+                        <p class="book-author">by SEYYIDALI</p>
+                        <div class="book-rating" aria-label="Rated 4.8 out of 5">
+                            <span>★★★★★</span>
+                            <strong>4.8</strong>
+                        </div>
+                        <div class="book-price">
+                            <strong>$18.40</strong>
+                            <del>$23.00</del>
+                        </div>
+                        <div class="book-card-actions">
+                            <button class="add-cart-button" type="button" data-title="The Blind Justice">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <circle cx="9" cy="20" r="1"></circle>
+                                    <circle cx="18" cy="20" r="1"></circle>
+                                    <path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L20.5 9H7"></path>
+                                </svg>
+                                Add to Cart
+                            </button>
+                            <button class="details-button" type="button" data-title="The Blind Justice">View Details</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 2 -->
+                <article class="book-card" data-category="Educational Books">
+                    <div class="book-card-image">
+                        <span class="discount-badge">15% OFF</span>
+                        <button class="wishlist-button" type="button" data-title="The Positive Mind Effect" aria-label="Add The Positive Mind Effect to wishlist">♡</button>
+                        <img src="image/2end.jpg" alt="The Positive Mind Effect book cover" loading="lazy">
+                    </div>
+                    <div class="book-card-content">
+                        <h3>The Positive Mind Effect</h3>
+                        <p class="book-author">by designalle</p>
+                        <div class="book-rating" aria-label="Rated 4.7 out of 5">
+                            <span>★★★★★</span>
+                            <strong>4.7</strong>
+                        </div>
+                        <div class="book-price">
+                            <strong>$20.40</strong>
+                            <del>$24.00</del>
+                        </div>
+                        <div class="book-card-actions">
+                            <button class="add-cart-button" type="button" data-title="The Positive Mind Effect">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <circle cx="9" cy="20" r="1"></circle>
+                                    <circle cx="18" cy="20" r="1"></circle>
+                                    <path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L20.5 9H7"></path>
+                                </svg>
+                                Add to Cart
+                            </button>
+                            <button class="details-button" type="button" data-title="The Positive Mind Effect">View Details</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 3 -->
+                <article class="book-card" data-category="Technology Books">
+                    <div class="book-card-image">
+                        <span class="discount-badge">25% OFF</span>
+                        <button class="wishlist-button" type="button" data-title="Deep Work" aria-label="Add Deep Work to wishlist">♡</button>
+                        <img src="image/3rd.jpg" alt="Deep Work book cover" loading="lazy">
+                    </div>
+                    <div class="book-card-content">
+                        <h3>Deep Work</h3>
+                        <p class="book-author">by Cal Newport</p>
+                        <div class="book-rating" aria-label="Rated 4.9 out of 5">
+                            <span>★★★★★</span>
+                            <strong>4.9</strong>
+                        </div>
+                        <div class="book-price">
+                            <strong>$15.75</strong>
+                            <del>$21.00</del>
+                        </div>
+                        <div class="book-card-actions">
+                            <button class="add-cart-button" type="button" data-title="Deep Work">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <circle cx="9" cy="20" r="1"></circle>
+                                    <circle cx="18" cy="20" r="1"></circle>
+                                    <path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L20.5 9H7"></path>
+                                </svg>
+                                Add to Cart
+                            </button>
+                            <button class="details-button" type="button" data-title="Deep Work">View Details</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 4 -->
+                <article class="book-card" data-category="Educational Books">
+                    <div class="book-card-image">
+                        <span class="discount-badge">18% OFF</span>
+                        <button class="wishlist-button" type="button" data-title="Master Your Emotions" aria-label="Add Master Your Emotions to wishlist">♡</button>
+                        <img src="image/4th.jpg" alt="Master Your Emotions book cover" loading="lazy">
+                    </div>
+                    <div class="book-card-content">
+                        <h3>Master Your Emotions</h3>
+                        <p class="book-author">by Thibaut Meurisse</p>
+                        <div class="book-rating" aria-label="Rated 4.6 out of 5">
+                            <span>★★★★★</span>
+                            <strong>4.6</strong>
+                        </div>
+                        <div class="book-price">
+                            <strong>$16.40</strong>
+                            <del>$20.00</del>
+                        </div>
+                        <div class="book-card-actions">
+                            <button class="add-cart-button" type="button" data-title="Master Your Emotions">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <circle cx="9" cy="20" r="1"></circle>
+                                    <circle cx="18" cy="20" r="1"></circle>
+                                    <path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L20.5 9H7"></path>
+                                </svg>
+                                Add to Cart
+                            </button>
+                            <button class="details-button" type="button" data-title="Master Your Emotions">View Details</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 5 -->
+                <article class="book-card" data-category="Biography">
+                    <div class="book-card-image">
+                        <span class="discount-badge">22% OFF</span>
+                        <button class="wishlist-button" type="button" data-title="Control Your Emotions" aria-label="Add Control Your Emotions to wishlist">♡</button>
+                        <img src="image/5th.jpg" alt="Control Your Emotions book cover" loading="lazy">
+                    </div>
+                    <div class="book-card-content">
+                        <h3>Control Your Emotions</h3>
+                        <p class="book-author">by Patrick King</p>
+                        <div class="book-rating" aria-label="Rated 4.8 out of 5">
+                            <span>★★★★★</span>
+                            <strong>4.8</strong>
+                        </div>
+                        <div class="book-price">
+                            <strong>$17.16</strong>
+                            <del>$22.00</del>
+                        </div>
+                        <div class="book-card-actions">
+                            <button class="add-cart-button" type="button" data-title="Control Your Emotions">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <circle cx="9" cy="20" r="1"></circle>
+                                    <circle cx="18" cy="20" r="1"></circle>
+                                    <path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L20.5 9H7"></path>
+                                </svg>
+                                Add to Cart
+                            </button>
+                            <button class="details-button" type="button" data-title="Control Your Emotions">View Details</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <nav class="pagination" aria-label="Featured books pages"></nav>
+        </section>
+
+        <!-- Best Selling Books section -->
+        <section class="best-sellers" aria-labelledby="best-sellers-heading">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">Top choices</span>
+                    <h2 id="best-sellers-heading">Best Selling Books</h2>
+                </div>
+            </div>
+
+            <div class="best-seller-grid">
+                <!-- Top selling Book 1 -->
+                <article class="best-seller-card">
+                    <div class="best-seller-image">
+                        <span class="best-badge">Best Seller</span>
+                        <span class="rank-badge">#1</span>
+                        <img src="image/3rd.jpg" alt="Deep Work book cover">
+                    </div>
+                    <div class="best-seller-content">
+                        <h3>Deep Work</h3>
+                        <p>by Cal Newport</p>
+                        <div class="book-price">
+                            <strong>$15.75</strong>
+                            <del>$21.00</del>
+                            <span>25% OFF</span>
+                        </div>
+                        <button class="buy-now-button" type="button" data-title="Deep Work">Buy Now</button>
+                    </div>
+                </article>
+
+                <!-- Top selling Book 2 -->
+                <article class="best-seller-card">
+                    <div class="best-seller-image">
+                        <span class="best-badge">Best Seller</span>
+                        <span class="rank-badge">#2</span>
+                        <img src="image/5th.jpg" alt="Control Your Emotions book cover">
+                    </div>
+                    <div class="best-seller-content">
+                        <h3>Control Your Emotions</h3>
+                        <p>by Patrick King</p>
+                        <div class="book-price">
+                            <strong>$17.16</strong>
+                            <del>$22.00</del>
+                            <span>22% OFF</span>
+                        </div>
+                        <button class="buy-now-button" type="button" data-title="Control Your Emotions">Buy Now</button>
+                    </div>
+                </article>
+
+                <!-- Top selling Book 3 -->
+                <article class="best-seller-card">
+                    <div class="best-seller-image">
+                        <span class="best-badge">Best Seller</span>
+                        <span class="rank-badge">#3</span>
+                        <img src="image/4th.jpg" alt="Master Your Emotions book cover">
+                    </div>
+                    <div class="best-seller-content">
+                        <h3>Master Your Emotions</h3>
+                        <p>by Thibaut Meurisse</p>
+                        <div class="book-price">
+                            <strong>$16.40</strong>
+                            <del>$20.00</del>
+                            <span>18% OFF</span>
+                        </div>
+                        <button class="buy-now-button" type="button" data-title="Master Your Emotions">Buy Now</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Book Categories section -->
+        <section class="book-categories" id="categories" aria-labelledby="categories-heading">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">Browse collection</span>
+                    <h2 id="categories-heading">Book Categories</h2>
+                </div>
+            </div>
+
+            <div class="category-grid">
+                <a class="category-card" href="#all-books" data-category="Story Books">
+                    <span class="category-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3V4Z"></path><path d="M8 20a3 3 0 0 1 0-6h11M9 7h6M9 10h6"></path></svg>
+                    </span>
+                    <h3>Story Books</h3>
+                    <span class="category-count">Explore stories</span>
+                </a>
+
+                <a class="category-card" href="#all-books" data-category="Novels">
+                    <span class="category-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v18H6.5A2.5 2.5 0 0 0 4 23.5v-18ZM20 5.5A2.5 2.5 0 0 0 17.5 3H13v18h4.5A2.5 2.5 0 0 1 20 23.5v-18Z"></path></svg>
+                    </span>
+                    <h3>Novels</h3>
+                    <span class="category-count">Explore novels</span>
+                </a>
+
+                <a class="category-card" href="#all-books" data-category="Islamic Books">
+                    <span class="category-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.5 15.5A7.5 7.5 0 1 1 12 5a6 6 0 1 0 6.5 10.5Z"></path><path d="m18 3 1 2.2L21 6l-2 1.1L18 9l-1-1.9L15 6l2-.8L18 3Z"></path></svg>
+                    </span>
+                    <h3>Islamic Books</h3>
+                    <span class="category-count">Explore islamic</span>
+                </a>
+
+                <a class="category-card" href="#all-books" data-category="Educational Books">
+                    <span class="category-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 9 9-5 9 5-9 5-9-5Z"></path><path d="M7 12v5c2.7 2.2 7.3 2.2 10 0v-5M21 9v7"></path></svg>
+                    </span>
+                    <h3>Educational Books</h3>
+                    <span class="category-count">Explore education</span>
+                </a>
+
+                <a class="category-card" href="#all-books" data-category="Technology Books">
+                    <span class="category-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"></rect><path d="M8 21h8M12 17v4M7 9h10"></path></svg>
+                    </span>
+                    <h3>Technology Books</h3>
+                    <span class="category-count">Explore technology</span>
+                </a>
+
+                <a class="category-card" href="#all-books" data-category="Science Books">
+                    <span class="category-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3"></path><path d="M7.5 16h9"></path></svg>
+                    </span>
+                    <h3>Science Books</h3>
+                    <span class="category-count">Explore science</span>
+                </a>
+
+                <a class="category-card" href="#all-books" data-category="Biography">
+                    <span class="category-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0M8 21v-3M16 21v-3"></path></svg>
+                    </span>
+                    <h3>Biography</h3>
+                    <span class="category-count">Explore lives</span>
+                </a>
+
+                <a class="category-card" href="#all-books" data-category="History Books">
+                    <span class="category-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 18h14M6 18V9M10 18V9M14 18V9M18 18V9M3 9l9-6 9 6H3Z"></path></svg>
+                    </span>
+                    <h3>History Books</h3>
+                    <span class="category-count">Explore history</span>
+                </a>
+
+                <a class="category-card" href="#all-books" data-category="Poetry Books">
+                    <span class="category-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4c-5 0-9 2-9 7 0 3 2 5 5 5 5 0 7-6 4-12Z"></path><path d="M5 20c3-6 8-10 15-16M4 14c2 0 4 1 5 3"></path></svg>
+                    </span>
+                    <h3>Poetry Books</h3>
+                    <span class="category-count">Explore poetry</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Special Offers -->
+        <section class="special-offers" aria-labelledby="offers-heading">
+            <div class="offer-banner">
+                <div>
+                    <span>Limited Time Offer</span>
+                    <h2 id="offers-heading">Big savings on your favorite books</h2>
+                    <p>Upgrade your reading collection before the offer ends.</p>
+                    <a href="#all-books">Shop Now</a>
+                </div>
+                <div class="offer-badges">
+                    <b>10%</b><b>20%</b><b>30%</b>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Reviews -->
+        <section class="customer-reviews" aria-labelledby="reviews-heading">
+            <div class="section-heading">
+                <div><span class="section-kicker">Happy readers</span><h2 id="reviews-heading">Customer Reviews</h2></div>
+                <button class="write-review-button" type="button">Write a Review</button>
+            </div>
+            <form class="review-form">
+                <input type="text" name="name" placeholder="Your name" required>
+                <select name="rating" aria-label="Select rating" required>
+                    <option value="5">★★★★★ 5 stars</option><option value="4">★★★★☆ 4 stars</option>
+                    <option value="3">★★★☆☆ 3 stars</option><option value="2">★★☆☆☆ 2 stars</option>
+                    <option value="1">★☆☆☆☆ 1 star</option>
+                </select>
+                <input type="text" name="comment" placeholder="Write your comment" required>
+                <button type="submit">Submit Review</button>
+            </form>
+            <div class="review-grid">
+                <article class="review-card">
+                    <span class="customer-avatar">AS</span>
+                    <h3>Ayesha Siddiqua</h3>
+                    <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+                    <p class="review-comment">Excellent collection and fast delivery. The books were in great condition.</p>
+                </article>
+                <article class="review-card">
+                    <span class="customer-avatar avatar-blue">RM</span>
+                    <h3>Rahim Mahmud</h3>
+                    <p class="review-stars" aria-label="4 out of 5 stars">★★★★☆</p>
+                    <p class="review-comment">A smooth borrowing experience with many useful books to choose from.</p>
+                </article>
+                <article class="review-card">
+                    <span class="customer-avatar avatar-green">NK</span>
+                    <h3>Nusrat Karim</h3>
+                    <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+                    <p class="review-comment">My favorite place to find and explore books. Highly recommended!</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Checkout & Order -->
+        <section class="checkout-section" id="checkout" aria-labelledby="checkout-heading">
+            <div class="checkout-summary">
+                <span class="section-kicker">Secure checkout</span>
+                <h2 id="checkout-heading">Complete Your Order</h2>
+                <p>Enter your delivery details and confirm payment.</p>
+            </div>
+            <form class="checkout-form" id="checkout-form">
+                <label>Customer Name<input type="text" name="customerName" required placeholder="Full name"></label>
+                <label>Mobile Number<input type="tel" name="mobile" required placeholder="01XXXXXXXXX"></label>
+                <label>Email Address<input type="email" name="email" required placeholder="email@example.com"></label>
+                <label class="full-field">Delivery Address<textarea name="address" required placeholder="House, road, area, city"></textarea></label>
+                <fieldset class="full-field">
+                    <legend>Select Payment Method</legend>
+                    <label class="payment-option"><input type="radio" name="payment" value="Cash on Delivery" checked><span>Cash on Delivery</span></label>
+                    <label class="payment-option"><input type="radio" name="payment" value="Mobile Payment"><span>Mobile Payment</span></label>
+                    <label class="payment-option"><input type="radio" name="payment" value="Card Payment"><span>Card Payment</span></label>
+                </fieldset>
+                <button class="confirm-order-button full-field" type="submit">Confirm Order</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Website footer -->
+    <footer class="site-footer" id="contact">
+        <div class="footer-main">
+            <div class="footer-about" id="about">
+                <a class="footer-brand" href="#" aria-label="Book Haven home">
+                    <span class="footer-brand-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H11v17H6.5A2.5 2.5 0 0 0 4 21.5v-17Zm16 0A2.5 2.5 0 0 0 17.5 2H13v17h4.5A2.5 2.5 0 0 1 20 21.5v-17Z"/>
+                        </svg>
+                    </span>
+                    <span>Book<span>Haven</span></span>
+                </a>
+                <p>Discover, borrow, and enjoy a thoughtfully selected collection of books for every kind of reader.</p>
+                <div class="social-links" aria-label="Social media">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Instagram">ig</a>
+                    <a href="#" aria-label="YouTube">▶</a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#all-books">All Books</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#about">About Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column footer-contact">
+                <h2>Contact Information</h2>
+                <ul>
+                    <li><span>Email Address</span><a href="mailto:hello@bookhaven.com">hello@bookhaven.com</a></li>
+                    <li><span>Phone Number</span><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column newsletter">
+                <h2>Newsletter Subscription</h2>
+                <p>Get new book updates and special offers.</p>
+                <form class="newsletter-form">
+                    <label class="sr-only" for="newsletter-email">Email address</label>
+                    <input id="newsletter-email" type="email" required placeholder="Email address">
+                    <button type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
+                </form>
+                <small class="newsletter-message" aria-live="polite"></small>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ahsanur Zaman. All rights reserved.</p>
+            <div>
+                <a href="#privacy">Privacy Policy</a>
+                <span aria-hidden="true">|</span>
+                <a href="#terms">Terms &amp; Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Confirmation -->
+    <div class="order-modal" id="order-modal" aria-hidden="true">
+        <div class="order-confirmation">
+            <button class="close-order-modal" type="button" aria-label="Close">&times;</button>
+            <div class="confirmation-icon">✓</div>
+            <h2>Order Confirmed!</h2>
+            <p>Thank you for your order. Your books will be delivered soon.</p>
+            <strong id="order-number">Order #BL-1001</strong>
+            <button class="continue-shopping-button" type="button">Continue Shopping</button>
+        </div>
+    </div>
+
+    <!-- JavaScript file for menu and search behavior -->
+    <script src="js/javascript.js"></script>
+    <script src="js/Admin.js"></script>
+</body>
+</html>
